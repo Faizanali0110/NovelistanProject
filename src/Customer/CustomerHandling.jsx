@@ -6,6 +6,7 @@ import UserDeshboard from "./UserDeshboard"; // Import UserDashboard component
 import Header from "../components/Header"; // Import Header component
 import Footer from "../components/Footer"; // Import Footer component
 import Cookies from 'js-cookie';
+import ViewsReviews from "./ViewReviews";
 
 const CustomerHandling = () => {
     // Define the checkCookies function
@@ -18,11 +19,12 @@ const CustomerHandling = () => {
         <div className="min-h-screen flex flex-col">
             
             <main className="flex-grow container mx-auto">
-                <Routes>
-                    <Route path="/" element={<UserDeshboard />} /> {/* Default route */}
-                    <Route path="/add-review" element={<AddReview />} />
-                    <Route path="/view-reviews" element={<ViewBooks />} />
-                </Routes>
+            <Routes>
+                <Route path="/" element={<UserDeshboard />} />
+                <Route path="/add-review" element={<AddReview />} /> {/* Add Review Route */}
+                <Route path="/view-review" element={<ViewsReviews />} /> {/* View Reviews Route */}
+            </Routes>
+
             </main>
             <button onClick={checkCookies} className="p-2 bg-blue-500 text-white rounded mt-4">
                 Check Cookies

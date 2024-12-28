@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search, BookOpen, ChevronLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
+  import { Cookies } from 'react-cookie';
 const API_BASE_URL = 'http://localhost:8082';
 
 const ViewBooks = () => {
@@ -91,11 +91,23 @@ const ViewBooks = () => {
     }
   };
 
-  const handleReviewClick = (bookId, type) => {
-    localStorage.setItem('selectedBookId', bookId);
-    navigate(type === 'add' ? '/add-review' : '/view-reviews');
-  };
 
+
+const cookies = new Cookies();
+
+const handleReviewClick = (bookId, type) => {
+  cookies.set('selectedBookId', bookId, { path: '/' }); // Store the bookId in cookies
+
+  console.log(`Navigating to: ${type === 'add' ? '/add-review' : '/view-reviews'}`);
+  if (type === 'add') {
+    setTimeout(() => navigate('add-review'), 1000); // Navigate to Add Review
+  } else if (type === 'view') {
+    setTimeout(() => navigate('view-review'), 1000); // Navigate to View Reviews
+  }
+};
+
+  
+  
   return (
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-yellow-100">
       <div className="sticky top-0 z-50 bg-gradient-to-r from-yellow-600 to-yellow-800 shadow-xl">
