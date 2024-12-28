@@ -21,7 +21,7 @@ const CustomerHandling = () => {
                 <Routes>
                     <Route path="/" element={<UserDeshboard />} /> {/* Default route */}
                     <Route path="/add-review" element={<AddReview />} />
-                    <Route path="/view-books" element={<ViewBooks />} />
+                    <Route path="/view-reviews" element={<ViewBooks />} />
                 </Routes>
             </main>
             <button onClick={checkCookies} className="p-2 bg-blue-500 text-white rounded mt-4">
