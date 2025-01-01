@@ -16,8 +16,8 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @GetMapping("/reviewByBookID")
-    public ResponseEntity<?> getReviewBook(@RequestParam Long id) {
+    @GetMapping("/reviewByBookID/{id}")
+    public ResponseEntity<?> getReviewBook(@PathVariable Long id) {
         try {
             List<Review> reviews = reviewService.getAllReviewsById(id);
             if (reviews != null && !reviews.isEmpty()) {
