@@ -79,11 +79,11 @@ public class UserController {
     {
         try {
             User user=userService.getUserById(id);
-            long userId;
+            String userName;
             if(user!=null)
             {
-                userId=user.getId();
-                return  ResponseEntity.ok(userId);
+                userName=user.getUsername();
+                return  ResponseEntity.ok(userName);
             }
             else
             {
